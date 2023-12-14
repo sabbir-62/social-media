@@ -30,8 +30,9 @@ exports.validationUserName = async (userName) => {
     return userName;
 };
 
+const KEY = "5<4D''{#GvWXj78Z0)M}xY)*;Kv;@}";
 exports.generateToken = (payload, exp) => {
-    return jwt.sign(payload, process.env.KEY||"ABCD", {
+    return jwt.sign(payload, KEY||"ABCD", {
         expiresIn: exp
     });
 };

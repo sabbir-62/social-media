@@ -12,7 +12,8 @@ exports.tokenVerify = async (req, res, next) => {
             });
         }
 
-        const verifyToken = jwt.verify(token, process.env.KEY || "ABCD");
+        const KEY = "5<4D''{#GvWXj78Z0)M}xY)*;Kv;@}"
+        const verifyToken = jwt.verify(token, KEY || "ABCD");
 
         const expireToken = Date.now() / 1000 > verifyToken.exp;
 

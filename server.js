@@ -8,7 +8,7 @@ const {
 // Database connection.... 
 const dataConnect = async () => {
     try {
-        await mongoose.connect(DATA );
+        await mongoose.connect("mongodb+srv://mszaman:mszaman@cluster0.k61kwgo.mongodb.net/social_book");
         console.log('Database Connection Successful')
     } catch (err) {
         console.log(err.message);
@@ -16,9 +16,9 @@ const dataConnect = async () => {
 };
 
 // running server.....
-app.listen(PORT, async () => {
+app.listen(8500, async () => {
     try {
-        console.log(`Sever run successfully on http://localhost:${PORT}`);
+        console.log(`Sever run successfully on http://localhost: 8500`);
         await dataConnect();
     } catch (error) {
         console.log(error.message);

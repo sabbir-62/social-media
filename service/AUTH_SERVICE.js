@@ -94,7 +94,9 @@ exports.registration_user = async (req) => {
             id: userData._id
         }, "15m");
 
-        const url = `${process.env.BASE_URL}/activate/${emailVerification}`;
+        const BASE_URL = "http://localhost:8500/api/v1"
+
+        const url = `${BASE_URL}/activate/${emailVerification}`;
 
         await sendEmail(userData.email, userData.firstName, url);
 
@@ -125,7 +127,7 @@ exports.activate_user = async (req) => {
             };
         };
 
-        const verificationData = jwt.verify(id, process.env.KEY);
+        const verificationData = jwt.verify(id, "5<4D''{#GvWXj78Z0)M}xY)*;Kv;@}");
 
         const expireToken = Date.now() / 1000 > verificationData.exp;
         if (expireToken) {
@@ -252,7 +254,8 @@ exports.login_user = async (req) => {
                 id: findUser._id
             }, "15m");
 
-            const url = `${process.env.BASE_URL}/activate/${emailVerification}`;
+            const BASE_URL = "http://localhost:8500/api/v1"
+            const url = `${BASE_URL}/activate/${emailVerification}`;
 
             await sendEmail(findUser.email, findUser.firstName, url);
 
@@ -313,7 +316,8 @@ exports.forget_password = async (req) => {
             id: findUser._id
         }, "15m");
 
-        const url = `${process.env.BASE_URL}/set-password/${emailVarification}`;
+        const BASE_URL = "http://localhost:8500/api/v1"
+        const url = `${BASE_URL}/set-password/${emailVarification}`;
 
         await forgetPassword_URL_sentemail(findUser.email, findUser.firstName, url);
 
@@ -348,7 +352,8 @@ exports.set_password = async (req) => {
             };
         };
 
-        const verificationData = jwt.verify(id, process.env.KEY);
+        const KEY = "5<4D''{#GvWXj78Z0)M}xY)*;Kv;@}";
+        const verificationData = jwt.verify(id, KEY);
 
         const expireToken = Date.now() / 1000 > verificationData.exp;
         if (expireToken) {
